@@ -1,0 +1,7 @@
+mutation helle($cookieId:String, $cookieText:String) {
+  editFortuneCookie(code:$cookieId, text:$cookieText){
+    cookieEdit
+    text
+    id
+  }
+}

@@ -1,0 +1,11 @@
+type Query {
+    getAllFortuneCookie: [CookiePhrase]
+    getRandomFortuneCookie: RandomCookiePhrase
+    searchCookie(text:String):[CookiePhrase]
+}
+
+type Mutation {
+    deleteFortuneCookie(code:String):CookieDeleted
+    createFortuneCookie(text:String):CookieCreated
+    editFortuneCookie(code:String,text:String): CookieEdited
+}

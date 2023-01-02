@@ -1,0 +1,5 @@
+mutation helloo($frase:String) {
+  createFortuneCookie(text:$frase){
+    Id
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "admin-example.navigation.label": "Fortune Cookies",
+  "admin-example.navigation.search.kws": "mock, test, training, io",
+  "admin-example.navigation.insight": "Insights",
+  "admin-example.navigation.management": "Management",
+  "admin-example.adminExample.title":"Fortune Cookies",
+  "admin-example.adminExample.Edit":"Edit Fortune Cookie",
+  "admin-example.adminExample.button":"Add",
+  "admin-example.adminExample.buttonEdit":"Edit",
+  "admin-example.adminExample.add":"Add Fortune Cookie",
+  "admin-example.adminExample.Error":"No results found"
+}

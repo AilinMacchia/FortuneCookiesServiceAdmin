@@ -1,0 +1,6 @@
+query hella {
+  getRandomFortuneCookie{
+    text
+    id
+  }
+}

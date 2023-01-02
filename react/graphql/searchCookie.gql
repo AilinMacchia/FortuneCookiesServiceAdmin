@@ -1,0 +1,6 @@
+query busca($searchText:String) {
+  searchCookie(text:$searchText){
+    text
+    id
+  }
+}

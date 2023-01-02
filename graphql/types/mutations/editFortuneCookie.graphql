@@ -1,0 +1,5 @@
+type CookieEdited{
+    cookieEdit:Boolean
+    text:String
+    id:String
+}

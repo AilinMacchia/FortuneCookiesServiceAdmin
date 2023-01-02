@@ -1,0 +1,5 @@
+mutation hellu($id:String) {
+  deleteFortuneCookie(code:$id){
+    status
+  }
+}

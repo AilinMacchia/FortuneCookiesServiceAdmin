@@ -1,11 +1,13 @@
-import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
-import { LRUCache, method, Service } from '@vtex/api'
+import type { ServiceContext, RecorderState,ParamsContext } from '@vtex/api'
+import { LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import { status } from './middlewares/status'
-import { validate } from './middlewares/validate'
+// import {getAllFortuneCookie} from './middlewares/getAllFortuneCookie'
+// import {getRandomFortuneCookie} from './middlewares/getRandomFortuneCookie'
+// import {createFortuneCookie} from './middlewares/createFortuneCookie'
+// import {deleteFortuneCookie} from './middlewares/deleteFortuneCookie'
+import { getAllFortuneCookie,getRandomFortuneCookie,createFortuneCookie,deleteFortuneCookie,editFortuneCookie,searchCookie } from './resolvers/index'
 
-const TIMEOUT_MS = 800
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
@@ -13,22 +15,6 @@ const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
 metrics.trackCache('status', memoryCache)
 
-// This is the configuration for clients available in `ctx.clients`.
-const clients: ClientsConfig<Clients> = {
-  // We pass our custom implementation of the clients bag, containing the Status client.
-  implementation: Clients,
-  options: {
-    // All IO Clients will be initialized with these options, unless otherwise specified.
-    default: {
-      retries: 2,
-      timeout: TIMEOUT_MS,
-    },
-    // This key will be merged with the default options and add this cache to our Status client.
-    status: {
-      memoryCache,
-    },
-  },
-}
 
 declare global {
   // We declare a global Context type just to avoid re-writing ServiceContext<Clients, State> in every handler and resolver
@@ -41,12 +27,28 @@ declare global {
 }
 
 // Export a service that defines route handlers and client options.
-export default new Service({
-  clients,
-  routes: {
-    // `status` is the route ID from service.json. It maps to an array of middlewares (or a single handler).
-    status: method({
-      GET: [validate, status],
-    }),
+export default new Service<Clients, State, ParamsContext>({
+  clients: {
+    implementation: Clients,
+    options: {
+      default: {
+        retries: 2,
+        timeout: 10000,
+      },
+    },
   },
-})
+  graphql: {
+    resolvers: {
+      Query: {
+        getAllFortuneCookie,
+        getRandomFortuneCookie,
+        searchCookie
+      },
+      Mutation: {
+        createFortuneCookie,
+        deleteFortuneCookie,
+        editFortuneCookie
+      },
+    },
+  },
+});

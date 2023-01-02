@@ -1,0 +1,6 @@
+query hello {
+  getAllFortuneCookie{
+    text
+    id
+  }
+}

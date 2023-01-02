@@ -1,0 +1,5 @@
+type CookieCreated {
+    Id: String
+    Href:String
+    DocumentId:String
+}

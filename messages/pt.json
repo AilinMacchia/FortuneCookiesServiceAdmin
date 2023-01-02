@@ -1,0 +1,12 @@
+{
+    "admin-example.navigation.label": "Fortune Cookies",
+    "admin-example.navigation.search.kws": "mock, test, treinamento, io",
+    "admin-example.navigation.insight": "Informações",
+    "admin-example.navigation.management": "Gerenciamento",
+    "admin-example.adminExample.title":"biscoitos da sorte",
+    "admin-example.adminExample.button":"Adicionar",
+    "admin-example.adminExample.Edit":"Editar biscoitos da sorte",
+    "admin-example.adminExample.buttonEdit":"Editar",
+    "admin-example.adminExample.add":"Adicionar biscoitos da sorte",
+    "admin-example.adminExample.Error":"Nenhum resultado encontrado"
+}
