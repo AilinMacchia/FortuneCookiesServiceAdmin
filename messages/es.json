@@ -6,7 +6,7 @@
     "admin-example.adminExample.title":"Galletas de la fortuna",
     "admin-example.adminExample.button":"Agregar",
     "admin-example.adminExample.Edit":"Editar Galleta de la fortuna",
-    "admin-example.adminExample.buttonEdit":"Editar",
+    "admin-example.adminExample.buttonEdit":"Guardar",
     "admin-example.adminExample.add":"Agregar Galleta de la fortuna",
     "admin-example.adminExample.Error":"No se encontraron resultados"
 }
