@@ -34,10 +34,7 @@ const AdminFortuneCookie = () => {
   }
   
   const HandleSubmit:any = ()=>{
-    mutationCreate({variables:{frase}})
-    .then(()=>{
-      queryGet()
-    })
+    mutationCreate({variables:{frase}, refetchQueries: [{ query: getAllFortuneCookie }]})
     setChange(!change)
     HandleModalAdd()
   }
@@ -45,7 +42,7 @@ const AdminFortuneCookie = () => {
     mutationDelete({variables:{id}, refetchQueries: [{ query: getAllFortuneCookie}]})
     setChange(!change)
   }
-
+  
   const HandleEdit:any = ()=>{
     console.log(cookieId,cookieText,"edit")
     mutationEdit({variables:{cookieId, cookieText}, refetchQueries: [{ query: getAllFortuneCookie }]})
